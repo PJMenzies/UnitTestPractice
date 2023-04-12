@@ -73,3 +73,10 @@ TEST(PasswordTest, empty_password)
 	int actual = my_password.count_leading_characters("");
 	ASSERT_EQ(0,actual);
 }
+
+TEST(PasswordTest, null_terminator)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("\0");
+	ASSERT_EQ(0,actual);
+}
