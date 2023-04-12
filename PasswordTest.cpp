@@ -24,3 +24,52 @@ TEST(PasswordTest, single_letter_password)
 	int actual = my_password.count_leading_characters("Z");
 	ASSERT_EQ(1,actual);
 }
+
+TEST(PasswordTest, multi_letter_password_single_leading)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("abc");
+	ASSERT_EQ(1,actual);
+}
+
+TEST(PasswordTest, upper_and_lower_case_test)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("Bbc");
+	ASSERT_EQ(1,actual);
+}
+
+TEST(PasswordTest, double_letter_test_with_trailing_caracter)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("kkck");
+	ASSERT_EQ(2,actual);
+}
+
+TEST(PasswordTest, single_start_double_letter_trailing)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("tcktt");
+	ASSERT_EQ(1,actual);
+}
+
+TEST(PasswordTest, triple_letter_password)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("ggg");
+	ASSERT_EQ(3,actual);
+}
+
+TEST(PasswordTest, leading_spaces_followed_by_single_char)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("    abc");
+	ASSERT_EQ(4,actual);
+}
+
+TEST(PasswordTest, empty_password)
+{
+    Password my_password;
+	int actual = my_password.count_leading_characters("");
+	ASSERT_EQ(0,actual);
+}
